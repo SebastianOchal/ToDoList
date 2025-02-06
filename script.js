@@ -18,7 +18,7 @@ function handleAddTask(){
     if(inputTask.value === "" ){
         console.log("Input empty no task added");
     }else{
-        console.log("New Task Added");
+        // console.log("New Task Added");
         // create a new list item and append it to an unorganized list
         const li = document.createElement("li");
         li.classList.add("task")
@@ -39,7 +39,9 @@ function handleAddTask(){
                 x.classList.add("btn");
                 x.classList.add("remove");
                 deleteBtn.push(x);
-                handleRemoveIvdividual();
+                x.addEventListener('click', (event)=>{
+                    handleRemoveIvdividual(event);
+                });
             }
             // append the new element 
             li.append(x);
@@ -53,16 +55,22 @@ function handleAddTask(){
 function handleRemoveAll(){
     for (let i = 0; i < currentTasks.length; i++) {
         currentTasks[i].remove();
+        console.log(`Amount of Tasks before: ${currentTasks.length}`)
     }
     currentTasks = [];
-    console.log(`Amount of Tasks: ${currentTasks.length}`)
+    console.log(`Amount of Tasks after: ${currentTasks.length}`)
 }
-function handleRemoveIvdividual(){
-    deleteBtn.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            alert(`Button ${index + 1} was pressed!`);
-        });
-    });
+function handleRemoveIvdividual(event){
+    let buttonPressed = event.target;
+    let buttonIndex = deleteBtn.indexOf(buttonPressed);
+    currentTasks[buttonIndex].remove();
+    //TODO: create an new object of arrays and loop through them to clear the deleted item
+    currentTasks.splice(buttonIndex,1);
+    deleteBtn.splice(buttonIndex,1);
+    console.log(`button pushed: ${buttonIndex} current tasks: ${currentTasks.length}`)
+}
+function handleHighlightIndividual(){
+
 }
 
 add.onclick = handleAddTask;
