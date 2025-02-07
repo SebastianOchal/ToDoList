@@ -1,3 +1,5 @@
+import { handleSelectIvdividual } from "./selectIndividual.js";
+
 
 // an object of elements to be created within a list
 const taskList = document.getElementById("taskList");
@@ -39,16 +41,22 @@ function addTaskChildren(taskText, parent){
             if (key === "check"){
                 item.setAttribute("type", "checkbox");
                 itemArrays.taskCheck.push(item);
+                item.addEventListener('click', (event)=>{
+                    handleSelectIvdividual(event, itemArrays.taskCheck);
+                });
             } else if(key === "text"){
                 item.innerText = taskText;
                 itemArrays.taskP.push(item);
+                item.addEventListener('click', (event)=>{
+                    handleSelectIvdividual(event, itemArrays.taskP);
+                });
             }else if(key === "remove"){ 
                 item.innerText = "delete";
                 item.classList.add("btn");
                 item.classList.add("remove");
                 itemArrays.deleteBtn.push(item);
                 item.addEventListener('click', (event)=>{
-                    handleRemoveIvdividual(event);
+                    handleSelectIvdividual(event, itemArrays.deleteBtn);
                 });
             }
             // append the new element 

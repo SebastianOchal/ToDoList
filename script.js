@@ -15,15 +15,7 @@ function handleRemoveAll(){
     currentTasks = [];
     console.log(`Amount of Tasks after: ${currentTasks.length}`)
 }
-function handleRemoveIvdividual(event){
-    let buttonPressed = event.target;
-    let buttonIndex = deleteBtn.indexOf(buttonPressed);
-    currentTasks[buttonIndex].remove();
-    //TODO: create an new object of arrays and loop through them to clear the deleted item
-    currentTasks.splice(buttonIndex,1);
-    deleteBtn.splice(buttonIndex,1);
-    console.log(`button pushed: ${buttonIndex} current tasks: ${currentTasks.length}`)
-}
+
 // ! Stoping for the day: 
 // TODO create a delete module (has to loop through itemArrays and remove an element from each)
 // TODO sepperate handel ivdvidual
