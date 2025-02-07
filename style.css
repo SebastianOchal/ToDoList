@@ -1,6 +1,75 @@
+body{
+    background-color: rgb(31,31,31);
+    background-image: radial-gradient(circle, rgb(90, 90, 90) 1px, transparent 1px);
+    background-size: 20px 20px;
+    margin: 0;
+    color: aliceblue;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    background-color: rgb(0, 174, 255);
+    border-radius: 5px;
+    font-size: clamp(30px, 5vw ,50px);
+    padding: 0.625rem 6.25rem  0.625rem 6.25rem;
+}
+#controls{
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    padding: 10px 10px;
+    margin: 10px;
+    background: hsla(199, 100%, 50%, 0.3);
+    border: rgb(0, 174, 255) 1px solid;
+    transition: ease-in 0.5s;
+    color: aliceblue;
+}
+#inputTask{
+    padding: 10px 10px;
+    margin: 10px;
+    background: hsla(199, 100%, 50%, 0.3);
+    border: rgb(0, 174, 255) 1px solid;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: hsla(199, 100%, 50%, 0.700);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+#list{
+    height: 75vh;
+    width: 50vw;
+    background-image: linear-gradient(transparent,hsla(199, 100%, 50%, 0.5));
+    border: rgb(0, 174, 255) 1px solid;
+    border-radius: 5px;
+}
+#taskList{
+    marker: none;
+    padding: 0;
+}
+.task{
+    display: flex;
+}
+p{
+    font-size: 2em;
+    margin: 10px 0 0 0;
+}
+
 .highlight{
-    background-color: red;
+    background-color: orange;
 }
 .crossed{
     text-decoration: line-through;
+}
+
+@media (max-width: 1200px){
+    #list{
+        width: 80vw;
+    }
 }
